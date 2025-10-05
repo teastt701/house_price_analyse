@@ -6,8 +6,7 @@ url = "https://lvr.land.moi.gov.tw/SERVICE/QueryPrice/e09ec359a2316b880761a86926
 
 headers = {
     "User-Agent": "Mozilla/5.0",
-    "Referer": "https://lvr.land.moi.gov.tw/",
-    # 有時還需要 Cookie，但你可以先測試不加看看能不能成功
+    "Referer": "https://lvr.land.moi.gov.tw/"
 }
 
 response = requests.get(url, headers=headers)
