@@ -56,6 +56,7 @@ punit:
 r: 
 reid: 
 s: 總坪數
+sq
 t: 交易標的
 town: 區域代號
 tp: 總價

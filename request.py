@@ -6,23 +6,22 @@ url = "https://lvr.land.moi.gov.tw/SERVICE/QueryPrice/e09ec359a2316b880761a86926
 
 headers = {
     "User-Agent": "Mozilla/5.0",
-    "Referer": "https://lvr.land.moi.gov.tw/"
+    "Referer": "https://lvr.land.moi.gov.tw/",
 }
 
 response = requests.get(url, headers=headers)
 
 if response.status_code == 200:
-    print("成功取得資料")
+    print("success")
     try:
-        data = response.json()  # 解析為 Python dict
+        data = response.json()
     except json.JSONDecodeError:
-        print("回傳不是 JSON 格式")
-        data = {"error": "非 JSON 格式", "raw": response.text}
+        print("not json")
+        data = {"error": "not json", "raw": response.text}
 
     filename = f"lvr_query_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
 
-    # 寫入 json 檔案
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 else:
-    print("失敗", response.status_code)
+    print("fail", response.status_code)
